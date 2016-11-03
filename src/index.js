@@ -33,13 +33,17 @@ window.getDeck = function() {
 // END OF STUFF TO NOT MODIFY
 
 
-var card = React.createClass({
+var allTheCards = React.createClass({
 render: function() {
   return (
     deck = getDeck().shuffle(),
     <div className="details col-sm-2">
         <div>
           <img className="poster img-responsive" role="presentation" src="http://golearntocode.com/images/cards/" + deck[0] + ".png" />
+          <img className="poster img-responsive" role="presentation" src="http://golearntocode.com/images/cards/" + deck[1] + ".png" />
+          <img className="poster img-responsive" role="presentation" src="http://golearntocode.com/images/cards/" + deck[2] + ".png" />
+          <img className="poster img-responsive" role="presentation" src="http://golearntocode.com/images/cards/" + deck[3] + ".png" />
+          <img className="poster img-responsive" role="presentation" src="http://golearntocode.com/images/cards/" + deck[4] + ".png" />
         </div>
     </div>
     )
@@ -50,7 +54,7 @@ render: function() {
 var App = React.createClass({
   render: function() {
   this.setState({
-    cards:allTheCards
+    cards: allTheCards
   })
 },
   render: function() {
