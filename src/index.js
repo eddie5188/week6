@@ -32,29 +32,34 @@ window.getDeck = function() {
 }
 // END OF STUFF TO NOT MODIFY
 
+
+var card = React.createClass({
+render: function() {
+  return (
+    deck = getDeck().shuffle(),
+    <div className="details col-sm-2">
+        <div>
+          <img className="poster img-responsive" role="presentation" src="http://golearntocode.com/images/cards/" + deck[0] + ".png" />
+        </div>
+    </div>
+    )
+  }
+})
+
+
 var App = React.createClass({
+  render: function() {
+  this.setState({
+    cards:allTheCards
+  })
+},
   render: function() {
     return (
       <div>
         <h1>Welcome to the KIEI-924 Casino!</h1>
         <div className="row">
           <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/ace_of_hearts.png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/ace_of_hearts.png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/ace_of_hearts.png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/ace_of_hearts.png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/ace_of_hearts.png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><a href="#" className="btn btn-success">Deal</a></h1>
+            <h1><a href="#" className="btn btn-success" onClick={this.state.cards}></a>Deal</h1>
           </div>
         </div>
       </div>
