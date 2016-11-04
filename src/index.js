@@ -33,28 +33,84 @@ window.getDeck = function() {
 // END OF STUFF TO NOT MODIFY
 
 
-var allTheCards = React.createClass({
+var Card1 = React.createClass({
 render: function() {
   return (
-    deck = getDeck().shuffle(),
     <div className="details col-sm-2">
         <div>
-          <img className="poster img-responsive" role="presentation" src="http://golearntocode.com/images/cards/" + deck[0] + ".png" />
-          <img className="poster img-responsive" role="presentation" src="http://golearntocode.com/images/cards/" + deck[1] + ".png" />
-          <img className="poster img-responsive" role="presentation" src="http://golearntocode.com/images/cards/" + deck[2] + ".png" />
-          <img className="poster img-responsive" role="presentation" src="http://golearntocode.com/images/cards/" + deck[3] + ".png" />
-          <img className="poster img-responsive" role="presentation" src="http://golearntocode.com/images/cards/" + deck[4] + ".png" />
+          <h1><img className="poster img-responsive" src={"http://golearntocode.com/images/cards/"+this.props.card1+".png"} /></h1>
         </div>
     </div>
-    )
-  }
+  )
+}
 })
 
+var Card2 = React.createClass({
+render: function() {
+  return (
+    <div className="details col-sm-2">
+        <div>
+          <h1><img className="poster img-responsive" src={"http://golearntocode.com/images/cards/"+this.props.card2+".png"} /></h1>
+        </div>
+    </div>
+  )
+}
+})
+
+var Card3 = React.createClass({
+render: function() {
+  return (
+    <div className="details col-sm-2">
+        <div>
+          <h1><img className="poster img-responsive" src={"http://golearntocode.com/images/cards/"+this.props.card3+".png"} /></h1>
+        </div>
+    </div>
+  )
+}
+})
+
+var Card4 = React.createClass({
+render: function() {
+  return (
+    <div className="details col-sm-2">
+        <div>
+          <h1><img className="poster img-responsive" src={"http://golearntocode.com/images/cards/"+this.props.card4+".png"} /></h1>
+        </div>
+    </div>
+  )
+}
+})
+
+var Card5 = React.createClass({
+render: function() {
+  return (
+    <div className="details col-sm-2">
+        <div>
+          <h1><img className="poster img-responsive" src={"http://golearntocode.com/images/cards/"+this.props.card5+".png"} /></h1>
+        </div>
+    </div>
+  )
+}
+})
 
 var App = React.createClass({
-  render: function() {
+  getInitialState: function(){
+    return {
+      card1: "ace_of_hearts",
+      card2: "ace_of_hearts",
+      card3: "ace_of_hearts",
+      card4: "ace_of_hearts",
+      card5: "ace_of_hearts"
+    }
+  },
+  deal: function() {
+  var deck = window.getDeck().shuffle()
   this.setState({
-    cards: allTheCards
+    card1: deck[0],
+    card2: deck[1],
+    card3: deck[2],
+    card4: deck[3],
+    card5: deck[4]
   })
 },
   render: function() {
@@ -62,9 +118,15 @@ var App = React.createClass({
       <div>
         <h1>Welcome to the KIEI-924 Casino!</h1>
         <div className="row">
+          <Card1 card1={this.state.card1}/>
+          <Card2 card2={this.state.card2}/>
+          <Card3 card3={this.state.card3}/>
+          <Card4 card4={this.state.card4}/>
+          <Card5 card5={this.state.card5}/>
           <div className="col-sm-2">
-            <h1><a href="#" className="btn btn-success" onClick={this.state.cards}></a>Deal</h1>
+            <h1><a href="#" className="btn btn-success" onClick={this.deal}>Deal!</a></h1>
           </div>
+
         </div>
       </div>
     )
